@@ -3,8 +3,8 @@
 #include <map>
 #include <vector>
 
-#include "network/Server.hpp"
-#include "network/ClientConnection.hpp"
+#include "../network/Server.hpp"
+#include "../network/ClientConnection.hpp"
 
 class EventLoop;
 

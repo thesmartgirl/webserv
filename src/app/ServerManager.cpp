@@ -22,12 +22,12 @@ ServerManager::~ServerManager() {
 void ServerManager::initialize(const char* configPath) {
     (void)configPath;
 
-    Server s("0.0.0.0", 8080, 128);
-    if (!s.start()) {
+    _servers.emplace_back("0.0.0.0", 8080, 128);
+    if (!_servers.back().start()) {
         Logger::error("Failed to start listening socket on port 8080");
+        _servers.pop_back();
         return;
     }
-    _servers.push_back(s);
 
     if (!_eventLoop) _eventLoop = new EventLoop(*this);
 

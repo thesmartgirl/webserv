@@ -1,9 +1,7 @@
 #include "app/ServerManager.hpp"
 #include "utils/Logger.hpp"
 
-int main(int argc, char** argv) {
-    (void)argc;
-    (void)argv;
+int main() {
 
     Logger::info("webserve bootstrap starting");
 

@@ -1,0 +1,1 @@
+g++ -std=c++98 -Isrc -Isrc/app -Isrc/config -Isrc/handlers -Isrc/http -Isrc/network -Isrc/routing -Isrc/services -Isrc/utils -pthread $(find src -name '*.cpp' -print) -o webserv
