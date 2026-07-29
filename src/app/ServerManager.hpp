@@ -28,7 +28,4 @@ private:
     std::vector<Server> _servers;
     std::map<int, ClientConnection> _clients;
     EventLoop* _eventLoop;
-public:
-    ServerManager(const ServerManager& other);
-    ServerManager& operator=(const ServerManager& other);
 };

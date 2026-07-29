@@ -27,11 +27,11 @@ void EventLoop::run() {
     while (true) {
         std::vector<pollfd> pfds;
         const std::vector<Server>& servers = _manager->servers();
-        {
-            std::ostringstream oss;
-            oss << "EventLoop: server count=" << servers.size();
-            Logger::info(oss.str());
-        }
+        // {
+        //     std::ostringstream oss;
+        //     oss << "EventLoop: server count=" << servers.size();
+        //     Logger::info(oss.str());
+        // }
         for (size_t i = 0; i < servers.size(); ++i) {
             pollfd p;
             p.fd = servers[i].listenFd();
@@ -41,11 +41,11 @@ void EventLoop::run() {
         }
 
         std::map<int, ClientConnection>& clients = _manager->clients();
-        {
-            std::ostringstream oss;
-            oss << "EventLoop: clients count=" << clients.size();
-            Logger::info(oss.str());
-        }
+        // {
+        //     std::ostringstream oss;
+        //     oss << "EventLoop: clients count=" << clients.size();
+        //     Logger::info(oss.str());
+        // }
         for (std::map<int, ClientConnection>::iterator it = clients.begin(); it != clients.end(); ++it) {
             {
                 std::ostringstream oss;

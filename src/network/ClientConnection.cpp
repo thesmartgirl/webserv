@@ -46,11 +46,11 @@ bool ClientConnection::onReadable() {
     char buf[4096];
     ssize_t n = recv(_fd, buf, sizeof(buf), 0);
     if (n <= 0) {
-        {
-            std::ostringstream oss;
-            oss << "recv returned " << n << ", errno=" << errno << " " << std::strerror(errno);
-            Logger::error(oss.str());
-        }
+        // {
+        //     std::ostringstream oss;
+        //     oss << "recv returned " << n << ", errno=" << errno << " " << std::strerror(errno);
+        //     Logger::error(oss.str());
+        // }
         return false;
     }
 
@@ -88,11 +88,11 @@ bool ClientConnection::onWritable() {
 
     ssize_t n = send(_fd, _outBuffer.data() + _bytesSent, _outBuffer.size() - _bytesSent, 0);
     if (n < 0) {
-        {
-            std::ostringstream oss;
-            oss << "send error fd=" << _fd << ": " << std::strerror(errno);
-            Logger::error(oss.str());
-        }
+        // {
+        //     std::ostringstream oss;
+        //     oss << "send error fd=" << _fd << ": " << std::strerror(errno);
+        //     Logger::error(oss.str());
+        // }
         return false;
     }
 
@@ -103,11 +103,11 @@ bool ClientConnection::onWritable() {
     }
     _bytesSent += static_cast<size_t>(n);
     if (_bytesSent >= _outBuffer.size()) {
-        {
-            std::ostringstream oss;
-            oss << "All bytes sent, closing fd=" << _fd;
-            Logger::info(oss.str());
-        }
+        // {
+        //     std::ostringstream oss;
+        //     oss << "All bytes sent, closing fd=" << _fd;
+        //     Logger::info(oss.str());
+        // }
         return false;
     }
 
