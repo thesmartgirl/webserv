@@ -5,7 +5,7 @@
 class HttpRequest;
 class HttpResponse;
 
-enum class ClientState {
+enum ClientState {
     NEW_CONNECTION,
     READING_HEADERS,
     READING_BODY,
@@ -18,7 +18,12 @@ enum class ClientState {
 
 class ClientConnection {
 public:
+
+    ClientConnection();
     explicit ClientConnection(int fd);
+    ~ClientConnection();
+    ClientConnection(const ClientConnection& other);
+    ClientConnection& operator=(const ClientConnection& other);
 
     int fd() const;
     ClientState state() const;

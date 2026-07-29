@@ -8,3 +8,16 @@ std::string CgiExecutor::execute(const HttpRequest& req, const std::string& scri
     (void)timeoutMs;
     return std::string();
 }
+
+CgiExecutor::CgiExecutor() {}
+
+CgiExecutor::~CgiExecutor() {}
+
+CgiExecutor::CgiExecutor(const CgiExecutor& other) {
+    (void)other;
+}
+
+CgiExecutor& CgiExecutor::operator=(const CgiExecutor& other) {
+    (void)other;
+    return *this;
+}

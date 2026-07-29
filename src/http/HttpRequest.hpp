@@ -7,6 +7,9 @@
 class HttpRequest {
 public:
     HttpRequest();
+    ~HttpRequest();
+    HttpRequest(const HttpRequest& other);
+    HttpRequest& operator=(const HttpRequest& other);
 
     HttpMethod method;
     std::string target;

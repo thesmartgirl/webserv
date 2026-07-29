@@ -22,7 +22,7 @@ ServerManager::~ServerManager() {
 void ServerManager::initialize(const char* configPath) {
     (void)configPath;
 
-    _servers.emplace_back("0.0.0.0", 8080, 128);
+    _servers.push_back(Server("0.0.0.0", 8080, 128));
     if (!_servers.back().start()) {
         Logger::error("Failed to start listening socket on port 8080");
         _servers.pop_back();

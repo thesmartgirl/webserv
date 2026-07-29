@@ -15,6 +15,17 @@ Server::Server(const char* host, int port, int backlog)
     (void)host;
 }
 
+Server::Server(const Server& other) : _listenFd(-1), _port(other._port), _backlog(other._backlog) {}
+
+Server& Server::operator=(const Server& other) {
+    if (this != &other) {
+        _listenFd = -1;
+        _port = other._port;
+        _backlog = other._backlog;
+    }
+    return *this;
+}
+
 Server::~Server() {
     if (_listenFd >= 0) {
         close(_listenFd);

@@ -6,5 +6,9 @@
 
 class StaticFileService {
 public:
+    StaticFileService();
+    ~StaticFileService();
+    StaticFileService(const StaticFileService& other);
+    StaticFileService& operator=(const StaticFileService& other);
     HttpResponse serveFile(const std::string& path, const RouteContext& ctx) const;
 };

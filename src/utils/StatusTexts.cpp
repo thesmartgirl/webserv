@@ -11,4 +11,16 @@ std::string StatusTexts::reasonPhrase(int statusCode) {
         case 500: return "Internal Server Error";
         default: return "Unknown";
     }
+    }
+StatusTexts::StatusTexts() {}
+
+StatusTexts::~StatusTexts() {}
+
+StatusTexts::StatusTexts(const StatusTexts& other) {
+    (void)other;
+}
+
+StatusTexts& StatusTexts::operator=(const StatusTexts& other) {
+    (void)other;
+    return *this;
 }

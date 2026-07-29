@@ -6,6 +6,8 @@ class Server {
 public:
     Server();
     Server(const char* host, int port, int backlog = 128);
+    Server(const Server& other);
+    Server& operator=(const Server& other);
     ~Server();
 
     bool start();

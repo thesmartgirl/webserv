@@ -2,6 +2,7 @@
 #include <unistd.h>
 
 FdWrapper::FdWrapper(int fd) : _fd(fd) {}
+FdWrapper::FdWrapper() : _fd(-1) {}
 
 FdWrapper::~FdWrapper() {
     if (_fd >= 0) {
@@ -22,4 +23,13 @@ void FdWrapper::reset(int newFd) {
         close(_fd);
     }
     _fd = newFd;
+}
+FdWrapper::FdWrapper(const FdWrapper& other) : _fd(-1) { (void)other; }
+
+FdWrapper& FdWrapper::operator=(const FdWrapper& other) {
+    if (this != &other) {
+        if (_fd >= 0) close(_fd);
+        _fd = -1; // do not duplicate fd
+    }
+    return *this;
 }

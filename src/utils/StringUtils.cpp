@@ -22,3 +22,12 @@ std::string StringUtils::trim(const std::string& s) {
     }
     return s.substr(start, end - start);
 }
+
+StringUtils::StringUtils() {}
+
+StringUtils::~StringUtils() {}
+
+StringUtils::StringUtils(const StringUtils& other) { (void)other; }
+
+StringUtils& StringUtils::operator=(const StringUtils& other) { (void)other; return *this; }
+

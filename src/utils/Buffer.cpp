@@ -1,5 +1,18 @@
 #include "Buffer.hpp"
 
+Buffer::Buffer() : _data() {}
+
+Buffer::~Buffer() {}
+
+Buffer::Buffer(const Buffer& other) : _data(other._data) {}
+
+Buffer& Buffer::operator=(const Buffer& other) {
+    if (this != &other) {
+        _data = other._data;
+    }
+    return *this;
+}
+
 void Buffer::append(const std::string& data) { _data += data; }
 
 const std::string& Buffer::str() const { return _data; }

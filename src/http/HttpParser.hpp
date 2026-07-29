@@ -5,7 +5,7 @@
 #include "HttpRequest.hpp"
 #include "HttpError.hpp"
 
-enum class ParseResult {
+enum ParseResult {
     Incomplete,
     Complete,
     Error
@@ -14,6 +14,9 @@ enum class ParseResult {
 class HttpParser {
 public:
     HttpParser();
+    ~HttpParser();
+    HttpParser(const HttpParser& other);
+    HttpParser& operator=(const HttpParser& other);
 
     ParseResult parse(const std::string& buffer, size_t& consumed, HttpRequest& req, HttpError& err);
     void reset();

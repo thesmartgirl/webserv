@@ -6,6 +6,9 @@
 class HttpResponse {
 public:
     HttpResponse();
+    ~HttpResponse();
+    HttpResponse(const HttpResponse& other);
+    HttpResponse& operator=(const HttpResponse& other);
 
     int statusCode;
     std::string reasonPhrase;
